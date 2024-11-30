@@ -22,7 +22,7 @@ def get_items():
     try:
         with psycopg.connect(conninfo=config['conninfo']) as conn:
             with conn.cursor() as cur:
-                cur.execute("SELECT content FROM gifts WHERE display_date <= CURRENT_DATE + 2 ORDER BY display_date ASC;")
+                cur.execute("SELECT content FROM gifts WHERE display_date <= CURRENT_DATE ORDER BY display_date ASC;")
                 x = cur.fetchall()
         for i in range(len(x)):
             x[i] = x[i][0]
