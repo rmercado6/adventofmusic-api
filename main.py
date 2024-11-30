@@ -26,8 +26,8 @@ def get_items():
                 x = cur.fetchall()
         for i in range(len(x)):
             x[i] = x[i][0]
-        [x.append({"day": d, "class": "upcoming"}) for d in range(len(x), 26)]
-        [x.append({"day": d, "class": "disabled"}) for d in range(26, 32)]
+        [x.append({"day": d + 1, "class": "upcoming"}) for d in range(len(x), 25)]
+        [x.append({"day": d + 1, "class": "disabled"}) for d in range(25, 31)]
         return x
     except (Exception, psycopg.DatabaseError) as error:
         raise error
