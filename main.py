@@ -26,6 +26,10 @@ def get_items():
                 x = cur.fetchall()
         for i in range(len(x)):
             x[i] = x[i][0]
+        for d in x:
+            d['class'] = 'past'
+        if len(x) > 0:
+            x[-1]['class'] = 'active'
         [x.append({"day": d + 1, "class": "upcoming"}) for d in range(len(x), 25)]
         [x.append({"day": d + 1, "class": "disabled"}) for d in range(25, 31)]
         return x
